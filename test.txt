@@ -1,0 +1,27 @@
+lvl.next_type:
+- define the Class of the next level
+    Game = minigame, referenced through a dictionary
+    Aim = aim&jump, created based on next_info
+    Dialogue = dialogue scene, created based on next_info
+    Credit = TBD
+    Display = display class (TO BE CREATED)
+
+lvl.next_info:
+- contain the neccesary info to reference/create the next level
+
+
+
+
+Earth minigame
+
+earth.is_passed = True
+earth.next_type = Game
+earth.next_name = "Earth2"
+
+
+main:
+
+if lvl.is_passed:
+    if earth.next_type = Dialogue
+        
+    lvl = minigames[lvl.next_lvl]

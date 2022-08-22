@@ -19,6 +19,14 @@ def main():
     screen = pygame.display.set_mode(size)
     pygame.display.set_caption('Game')
 
+    # starts with main menu?
+
+
+    # set up some sort of chain
+    # - self.is_passed = True -> cuts to another set scene
+    
+    
+
     level = Mars(screen, screen_width, screen_height, False)
     # level = AimJump(screen, screen_width, screen_height, "Earth", True)
     # levels = {"Earth": Earth(screen,)}

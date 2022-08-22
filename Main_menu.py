@@ -88,16 +88,15 @@ class Main_menu():
         self.credits_button = Button(width, height, x, y, still, hover, font, text)
 
         self.buttons.add(self.credits_button)
-
-
+    
     def clicked(self, button):
         if button == self.start_button:
             # Start game
             print("start")
+            self.is_passed = True
         elif button == self.exit_button:
             # Exit game
             print("exit")
-            self.is_passed = True
         elif button == self.credits_button:
             # Credits
             print("credits")
