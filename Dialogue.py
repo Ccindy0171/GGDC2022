@@ -3,7 +3,7 @@ TITLE_COL = (200, 200, 200)
 
 
 class Dialogue(pygame.sprite.Sprite):
-    def __init__(self, screen, planet, idx=0):
+    def __init__(self, screen, planet, next_type, next_info, idx=0):
         super().__init__()
 
         self.all_text = {'Earth': ['Earth.txt']}  # add all files
@@ -15,6 +15,9 @@ class Dialogue(pygame.sprite.Sprite):
         self.output_lines = []
         self.input_lines = None
         self.screen = screen
+        self.is_passed = False
+        self.next_type = next_type
+        self.next_info = next_info
 
         # set up images of speakers
         self.speaker = ""
@@ -103,7 +106,7 @@ class Dialogue(pygame.sprite.Sprite):
 
         # deal with text and blit it onto dialogue box
         if self.line_counter >= len(self.output_lines):  # if no more lines
-            self.screen.blit(self.bkgd_img, (0, 0))  # change this if needed (to 'passed == True'? - add passed as a var)
+            self.is_passed = True
         else:
             self.make_font(self.output_lines[self.line_counter][0], (40, 20), 1)  # blit the character name
             self.speaker = self.output_lines[self.line_counter][0]
