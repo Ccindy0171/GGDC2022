@@ -41,6 +41,8 @@ class Earth():
         self.speeding = 0
 
         self.is_passed = False
+        self.next_type = "Dialogue"
+        self.next_info = "Earth"  # ----- add index !! -------
 
         # Record time it takes the player to complete the course
         self.start_time = pygame.time.get_ticks()
