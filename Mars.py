@@ -14,10 +14,10 @@ def calc_distance(sprite1, sprite2):
 
 
 class Mars:
-    def __init__(self, screen, width, height, visible = False):
+    def __init__(self, screen, visible = False):
         # screen and associated dimensions
         self.screen = screen
-        self.screen_width, self.screen_height = width, height
+        self.screen_width, self.screen_height = screen.get_width(), screen.get_height()
 
         # side length of the square in which the player can move in without scrolling the screen
         self.still_center = 300
@@ -46,7 +46,9 @@ class Mars:
         self.player_group = pygame.sprite.Group()
 
         # indicator of whether spirit has been found
-        self.game_passed = False
+        self.is_passed = False
+        self.next_type = "Dialogue"
+        self.next_info = "Mars"  # --------- add index !! ------------
 
         # declaration of player
         self.player = Player(50, 50, self.map_width // 2, self.map_height // 2, 10)
@@ -152,7 +154,7 @@ class Mars:
         for metal in metals_touched:
             if metal == self.spirit:
                 print("Spirit found")
-                self.game_passed = True
+                self.is_passed = True
             else:
                 self.show_metal("Found scrap metal", self.scrap_metal)
                 # show metal on screen
@@ -257,7 +259,7 @@ class Mars:
 
     def passed(self):
         """return True if level is completed, False if not"""
-        return self.game_passed
+        return self.is_passed
 
 
 class ArrowShow(pygame.sprite.Sprite):
