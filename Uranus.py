@@ -18,7 +18,10 @@ class Lvl(object):
         self.level_num = 0  # which level to start at (0-2)
         self.snowman_step = 0  # how many parts completed
         self.rewind = False  # for redoing a level
-        self.passed = False
+        self.is_passed = False
+        self.next_type = "Dialogue"
+        self.next_info = "Uranus"  # ----------- add index !! ---------------
+        
         self.screen = screen
         self.current_level_stuff = None
         self.current_snowman = pygame.sprite.Group()
@@ -85,7 +88,7 @@ class Lvl(object):
                 else:
                     self.key_down(event)
 
-        if self.level_num > 3 or self.passed:
+        if self.level_num > 3 or self.is_passed:
             return False
 
         self.update()
@@ -201,7 +204,7 @@ class Lvl(object):
         self.current_ball.image = pygame.transform.scale(BALL_IMG_OFF, (self.current_ball.radius*2,
                                                                         self.current_ball.radius*2))
         if self.current_ball not in self.snowballs_list:
-            self.passed = True
+            self.is_passed = True
             return None
         if self.snowman_step != 0:  # remove finished snowball
             self.snowballs_list.remove(self.current_ball)
