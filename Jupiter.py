@@ -10,6 +10,9 @@ class Lvl(object):
         # level stuff
         self.screen = screen
         self.running = True
+        self.is_passed = False
+        self.next_type = "Dialogue"
+        self.next_info = "Jupiter"  # ---------- add index !! -------------
         self.objects = pygame.sprite.Group()
         backgd = pygame.image.load('Images/space_backgd.png')
         self.background = pygame.transform.scale(backgd, (screen.get_width(), backgd.get_height() * (screen.get_width()/backgd.get_width())))
@@ -177,6 +180,7 @@ class Lvl(object):
     def passed(self):
         if self.player.rect.bottom < (self.end.rect.bottom - 300):
             # replace with what happens next
+            self.is_passed = True
             return True
         else:
             return False
