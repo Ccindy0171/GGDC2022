@@ -3,11 +3,11 @@ import pygame
 from random import randint
 
 class Mercury():
-    def __init__(self, screen, screen_h, screen_w):
+    def __init__(self, screen):
         self.screen = screen
         # Height & width of visible part of minigame
-        self.game_h = screen_h
-        self.game_w = screen_w
+        self.game_h = screen.get_height()
+        self.game_w = screen.get_width()
 
         # Background image
         self.background = pygame.image.load("Mercury/mercury-pix2.png")
@@ -82,6 +82,8 @@ class Mercury():
         self.button = Button(width, height, x, y, button_still, button_hover, self.font)
 
         self.is_passed = False
+        self.next_type = "Dialogue"
+        self.next_info = "Mercury"  # --------- add index !! -------------
         self.is_paused = False
         
 
