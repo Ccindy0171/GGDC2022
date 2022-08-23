@@ -1,14 +1,17 @@
 import pygame
 
 class Main_menu():
-    def __init__(self, screen, screen_w, screen_h):
+    def __init__(self, screen, next_type, next_info, started=False):
         # Screen constants
         self.screen = screen
 
-        self.screen_w = screen_w
-        self.screen_h = screen_h
+        self.screen_w = screen.get_width()
+        self.screen_h = screen.get_height()
 
         self.is_passed = False
+        self.next_type = next_type
+        self.next_info = next_info
+        self.started = started
 
         # Background
         self.background = pygame.Surface((self.screen_w, self.screen_h))
@@ -41,7 +44,10 @@ class Main_menu():
 
         # Text
         font = pygame.font.SysFont("Arial", int(height * 0.6))
-        text = "Start"
+        if not self.started:
+            text = "Start"
+        else:
+            text = "Continue"
 
         self.start_button = Button(width, height, x, y, still, hover, font, text)
 
