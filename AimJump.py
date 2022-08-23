@@ -22,8 +22,6 @@ class AimJump:
         self.planet_name = planet
         self.planet = None
 
-        self.landed = None
-
         # self.planets_list = {"Mercury": [70, 1000, 9, "Planet_Art/pMercury1.png"],
         #                      "Venus": [80, 1150, 6, "Planet_Art/pVenus.png"],
         #                      "Earth": [100, 1300, 5, "Planet_Art/pEarth.png"],
@@ -61,7 +59,9 @@ class AimJump:
         self.player = Player(30, 30, 20, self.planet)
         self.player_group.add(self.player)
 
-        self.game_passed = False
+        self.is_passed = False
+        self.next_type = "Dialogue"
+        self.next_info = None
 
     def add_planets(self, list, planet):
         for name in list:
@@ -101,9 +101,9 @@ class AimJump:
             plnts = pygame.sprite.spritecollide(self.player, self.planets, False)
             for planet in plnts:
                 if planet != self.planet:
-                    self.game_passed = True
-                    self.landed = planet.name
-                    print(self.landed)
+                    self.is_passed = True
+                    self.next_info = planet.name
+                    print(self.next_info)
 
     def key_down(self, event):
         # handles movement in four directions (using arrow keys)
@@ -151,7 +151,7 @@ class AimJump:
 
     def passed(self):
         """return True if level is completed, False if not"""
-        return self.game_passed
+        return self.is_passed
 
     def mouse_clicked(self, event):
         pass
