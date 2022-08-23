@@ -1,14 +1,16 @@
 import pygame
 
 class Pause_menu():
-    def __init__(self, screen, screen_w, screen_h):
+    def __init__(self, screen, next_type, next_info):
         # Screen constants
         self.screen = screen
 
-        self.screen_w = screen_w
-        self.screen_h = screen_h
+        self.screen_w = screen.get_width()
+        self.screen_h = screen.get_height()
 
         self.is_passed = False
+        self.next_type = next_type
+        self.next_info = next_info
 
         # Title text
         title_font = pygame.font.SysFont("Arial", int(self.screen_h // 7))
