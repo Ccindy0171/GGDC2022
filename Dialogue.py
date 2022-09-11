@@ -11,7 +11,7 @@ class Dialogue(pygame.sprite.Sprite):
         self.planet = planet
         self.line_counter = 0  # every 4 lines of a person's dialogue
         self.line_part_counter = 0  # every chunk of each person's dialogue
-        self.current_file = (self.all_text[planet])[idx]
+        self.current_file = 'Text/'+(self.all_text[planet])[idx]
         self.output_lines = []
         self.input_lines = None
         self.screen = screen
