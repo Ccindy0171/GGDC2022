@@ -1,0 +1,4 @@
+Kid:#Right, so you have to push the snowballs around in the snow to#make them big enough to put on the snowman.##[use the arrow keys]
+Kid:#But when you roll the snowball over the ground, the snow#disappears! So you gotta be efficient.
+Kid:#Get the snowball to where the snowman's supposed to be, and#match the size of your snowball to the part of the snowman#you're trying to make.
+Kid:#[press S to switch snowballs, D to start over, and the space#key to place the snowball once it's on the blue tile.]
